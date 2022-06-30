@@ -1,3 +1,3 @@
 let c = console.log
 c('Консоль в рабочем состоянии')
-с(window.location.href)
+c(window.location.href)
