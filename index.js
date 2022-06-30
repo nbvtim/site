@@ -1,2 +1,3 @@
 let c = console.log
-c('klhkfjdsf')
+c('Консоль в рабочем состоянии')
+с('')
