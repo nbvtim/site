@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="./favicon.svg"> 
+    <!-- <link rel="stylesheet" href="./SOURS/index.css"> -->
+    <style>
+        :active, :hover, :focus { outline: 0; outline-offset: 0;}
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        body{
+            margin: 0px 10px;
+            background-color: black;
+        }
+        #myInfo{
+            color: #ec9f5850;
+            font-size: .5em;
+        }
+        input{
+            font-size: 1em;
+            padding: 15px;
+            margin: 10px 0px ;
+            height: 60px;
+            font-weight: bolder;
+            background-color: transparent;
+            border: 5px solid #ec9f5850; 
+            border-radius: 5px;
+            color: #eca058; 
+        }
+        input::-webkit-input-placeholder {text-transform: uppercase; color: #eca058;text-align: center;} 
+        button{
+            font-size: 1em;
+            padding: 15px;
+            margin: 10px 0px ;
+            height: 60px;
+            font-weight: bolder;
+            background-color: transparent;
+            border: 5px solid #ec9f5850; 
+            border-radius: 5px;
+            color: #eca058; 
+        }
+        button:active{
+            background-color: #ec9f5850;
+        }
+        table{
+            border-collapse: collapse;
+        }
+        th{
+            color: #eca058;
+            background-color: #ec9f5823;
+            border: 1px solid #ec9f5823;
+            padding: 3px;
+            font-weight: normal
+        }
+        td{
+            color: #eca058;
+            border: 1px solid #ec9f5823;
+            padding: 5px;
+        }
+
+    </style>
+    <title>nbv &#127759;</title>
+</head>
+<body>
+
+    <div id="myInfo">info</div>
+    <input  id="input_" type="text"><button>></button>
+
+    <script>
+
+        //fetch('https://nbvtim.github.io/work/SOURS/all.json').then(function(res){return res.json()}).then(function(data){c(data)})
+        window.addEventListener('load', function(){
+            let c = console.log    
+
+            let xhr = new XMLHttpRequest()
+            xhr.open("GET", "https://nbvtim.github.io/work/db.json", false) // данные берутся с сервера, возможна задержка 
+            xhr.send()
+            
+            let db = JSON.parse(xhr.response).data
+            let date = JSON.parse(xhr.response).date
+            myInfo.innerHTML = `данные обновлены ${date} Email: exelent206@gmail.com`
+            input_.placeholder = JSON.parse(xhr.response).name
+
+            let div = document.createElement("div")
+
+            input_.addEventListener('input', function(){
+                let table = ""
+                let arr = []
+
+                //делаем массив значений
+                for (i in db) {
+                    let index = db[i].join(",").toUpperCase().indexOf(input_.value.toUpperCase())
+                    if(index != -1 && input_.value != ""){
+                        arr.push(db[i])
+                    }
+                }
+                for(i in arr){
+                    for(j in arr[i]){
+                        if(arr[i][j] === null){
+                            arr[i][j] = ""
+                        }
+                    }
+                }
+                //формируем HTML таблицу
+                table = "<table><tbody>"
+                table += "<tr>"
+                for (let i = 0; i < db[0].length; i++) {
+                    table += "<th>"+db[0][i]+"</th>"
+                }
+                table += "</tr>"
+                for (let i = 0; i < arr.length; i++) {
+                    table += "<tr>"
+                    for (let j = 0; j < arr[i].length; j++) {
+                        table += "<td>"+arr[i][j]+"</td>"
+                    }
+                    table += "</tr>"
+                }
+                table += "</tbody></table>"
+                //вставляем таблицу в документ
+                div.innerHTML = ""
+                document.body.append(div)
+                div.innerHTML = table
+                document.body.append(div)
+                if(arr.length === 0){
+                    div.style.display = "none"
+                }else{
+                    div.style.display = "block"
+                } 
+            })
+            
+            function tg(text){
+                TOKKEN = JSON.parse(xhr.response).tg
+                chat_id = 5131265599
+                // https://api.telegram.org/bot${TOKKEN}/getUpdates - переходим по адресу
+                // https://api.telegram.org/bot${TOKKEN}/sendMessage?chat_id=${chat_id}&text=бот_напишет_себе
+                // https://api.telegram.org/bot${TOKKEN}/sendMessage?chat_id=${chat_id}&text=бот_напишет_в_группу
+                xhttp = new XMLHttpRequest()
+                xhttp.open("GET", `https://api.telegram.org/bot${TOKKEN}/sendMessage?chat_id=${chat_id}&text=` + text, false)
+                xhttp.send()
+            }
+
+            document.querySelector("button").addEventListener("click", function(){
+                if(input_.value){
+                    tg(input_.value)
+                }
+            })
+                      
+        })
+    </script>
+
+</body>
+</html>
