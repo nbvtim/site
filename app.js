@@ -1,3 +1,8 @@
+/* 
+    создать обыеки с зависимостями и даннымми
+    запустить логику
+*/
+
 const
     c = console.log
     nodeXlsx = require('node-xlsx')
