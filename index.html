@@ -31,21 +31,11 @@
             border-radius: 5px;
             color: #eca058; 
         }
-        input::-webkit-input-placeholder {text-transform: uppercase; color: #eca058;text-align: center;} 
-        /* button{
-            font-size: 1em;
-            padding: 15px;
-            margin: 10px 0px ;
-            height: 60px;
-            font-weight: bolder;
-            background-color: transparent;
-            border: 5px solid #ec9f5850; 
-            border-radius: 5px;
-            color: #eca058; 
+        input::-webkit-input-placeholder {
+            text-transform: uppercase; 
+            color: #eca058;
+            text-align: center;
         }
-        button:active{
-            background-color: #ec9f5850;
-        } */
         table{
             border-collapse: collapse;
         }
@@ -60,15 +50,29 @@
             color: #eca058;
             border: 1px solid #ec9f5823;
             padding: 5px;
+            
         }
-
+        a{
+            text-decoration: none;
+            font-size: 16px;
+            float: right;
+            text-transform: uppercase;
+            width: 60px;
+            height: 60px;
+            font-weight: bolder;
+            background-color: transparent;
+            border: 5px solid #ec9f5850; 
+            border-radius: 5px;
+            margin: 10px;
+        }
     </style>
     <title>nbv &#127759;</title>
 </head>
 <body>
 
     <div id="myInfo">info</div>
-    <input  id="input_" type="text"><!-- <button>Отправить в tg</button> -->
+    <input  id="input_" type="text">
+    <a href="./nbv.html"></a>
 
     <script>
 
@@ -142,12 +146,6 @@
                 xhttp.open("GET", `https://api.telegram.org/bot${TOKKEN}/sendMessage?chat_id=${chat_id}&text=` + text, false)
                 xhttp.send()
             }
-
-            document.querySelector("button").addEventListener("click", function(){
-                if(input_.value){
-                    tg(input_.value)
-                }
-            })
 */                      
         })
     </script>
