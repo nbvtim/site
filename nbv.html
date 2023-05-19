@@ -2,9 +2,53 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        div{
+            display: flex;
+        }
+    </style>
     <title>NBV</title>
 </head>
 <body>
+    <header></header>
+    <article>
+        <div>
+            <div class="key">
+                <input type="text"> 
+            </div>
+            <div class="person">
+                <input type="text"> 
+            </div>
+            <div class="ddd">
+                <select>
+                    <option value="value1">Значение 1</option>
+                    <option value="value2">Значение 2</option>
+                    <option value="value3">Значение 3</option>
+                    <option value="value4">Значение 4</option>
+                    <option value="value2" selected>Выберите значение</option>
+                </select>
+            </div>
+        </div>
+    </article>
+    <footer></footer>
+
+    <script>
+        window.addEventListener('load', function(){
+            let c = console.log
+
+            let xhr = new XMLHttpRequest()
+            xhr.open("GET", "https://nbvtim.github.io/work/db.json", false) // данные берутся с сервера, возможна задержка 
+            xhr.send()
+
+            c(xhr.response)
+        })
+    </script>
+
     
 </body>
 </html>
