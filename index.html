@@ -69,7 +69,7 @@
     <title>nbv &#127759;</title>
 </head>
 <body>
-
+    <div id="myInfo">Данные по обновлению</div>
     <input  id="input_" type="text">
     <a href="./nbv.html"></a>
 
@@ -84,6 +84,11 @@
             xhr.send()
             
             let db = JSON.parse(xhr.response).data
+
+            c(myInfo)
+            c(db)
+            myInfo.innerHTML = db.date
+
             input_.placeholder = JSON.parse(xhr.response).name
 
             let div = document.createElement("div")
