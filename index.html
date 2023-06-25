@@ -85,10 +85,7 @@
             
             let db = JSON.parse(xhr.response).data
 
-            c(myInfo)
-            c(db)
-            myInfo.innerHTML = db.date
-
+            myInfo.innerHTML = JSON.parse(xhr.response).date
             input_.placeholder = JSON.parse(xhr.response).name
 
             let div = document.createElement("div")
