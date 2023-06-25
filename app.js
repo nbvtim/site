@@ -10,6 +10,20 @@ let xlsxDB = xlsx.parse(filePath)[0]
 xlsxDB.date = `Обновленно: ${new Date().toLocaleString()}` // .toLocaleDateString()  .toLocaleTimeString()
 fs.writeFileSync("db.json", JSON.stringify(xlsxDB, null, 1))
 
+c("\033[1;32mДанные обновлены !!! \033[m")
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* 
 // Работает только с wordx
 // Представляет docx в html формате
@@ -23,4 +37,3 @@ mammoth.convertToHtml({path: "C:/Users/User/Desktop/ДОКУМЕНТЫ/1 сме�
 
 */
 
-c("\033[1;32mДанные обновлены !!! \033[m")
