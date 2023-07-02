@@ -1,9 +1,9 @@
 {
   "name": "nbvtim",
   "version": "0.0.3",
-  "main": "app.js",
+  "main": "nbv.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node nbv.js"
   },
   "keywords": [],
   "author": "",
