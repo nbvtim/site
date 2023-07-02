@@ -2,14 +2,13 @@ const c = console.log
 const fs = require('fs')
 const xlsx = require('node-xlsx').default
 const filePath = "C:/Users/User/Desktop/ДОКУМЕНТЫ/1 смена СВК/ОПИСИ/all.xlsx"
-const filePath1 = "C:/Users/User/Desktop/1.xlsx"
 
 // const workSheetsFromBuffer = xlsx.parse(fs.readFileSync(filePath))
 // const workSheetsFromFile = xlsx.parse(filePath)
 
-let xlsxDB = xlsx.parse(filePath1)[0]
+let xlsxDB = xlsx.parse(filePath)[0]
 xlsxDB.date = `Обновленно: ${new Date().toLocaleString()}` // .toLocaleDateString()  .toLocaleTimeString()
-fs.writeFileSync("db1.json", JSON.stringify(xlsxDB, null, 1))
+fs.writeFileSync("db.json", JSON.stringify(xlsxDB, null, 1))
 
 c("\033[1;32mДанные обновлены !!! \033[m")
 
