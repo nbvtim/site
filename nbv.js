@@ -6,11 +6,11 @@ const filePath = "C:/Users/User/Desktop/ДОКУМЕНТЫ/1 смена СВК/�
 // const workSheetsFromBuffer = xlsx.parse(fs.readFileSync(filePath))
 // const workSheetsFromFile = xlsx.parse(filePath)
 
-let xlsxDB = xlsx.parse(filePath)[0]
+let xlsxDB = xlsx.parse(filePath)
 xlsxDB.date = `Обновленно: ${new Date().toLocaleString()}` // .toLocaleDateString()  .toLocaleTimeString()
 fs.writeFileSync("db.json", JSON.stringify(xlsxDB, null, 1))
 
-c("\033[1;32mДанные обновлены !!! \033[m")
+c("\033[1;32mДанные обновлены !!! \033[m")        
 
 let nbv = "https://api.telegram.org/bot5965701331:AAG21HoAObaJtCGqB-KeVNx1hlabD8e8TB8/sendMessage?chat_id=5131265599\&text=Текст"
 
