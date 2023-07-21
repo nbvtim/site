@@ -56,12 +56,10 @@
             let c = console.log
 
             let xhr = new XMLHttpRequest()
-            xhr.open("GET", "https://nbvtim.github.io/work/db.json", false) // данные берутся с сервера, возможна задержка 
+            xhr.open("GET", "https://nbvtim.github.io/work/nbv.html", false) // данные берутся с сервера, возможна задержка 
             xhr.send()
 
-            document.querySelector(".pre_nbv").innerHTML = xhr.responseURL // xhr.response
-
-            c(xhr)
+            document.querySelector(".pre_nbv").innerHTML = xhr.response // xhr.response
             
         })
     </script>
