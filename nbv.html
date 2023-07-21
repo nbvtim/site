@@ -58,7 +58,7 @@
             xhr.open("GET", "https://nbvtim.github.io/work/db.json", false) // данные берутся с сервера, возможна задержка 
             xhr.send()
 
-            c(xhr)
+            document.querySelector(".pre_nbv").innerHTML = xhr.response
             
         })
     </script>
