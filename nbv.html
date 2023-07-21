@@ -58,7 +58,6 @@
             let xhr = new XMLHttpRequest()
             xhr.open("GET", "https://nbvtim.github.io/work/nbv.html", false) // данные берутся с сервера, возможна задержка 
             xhr.send()
-            c(xhr.response)
             document.querySelector(".pre_nbv").innerText = xhr.response // xhr.response
             
         })
