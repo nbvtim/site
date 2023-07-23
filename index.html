@@ -86,9 +86,6 @@
             let db = JSON.parse(xhr.response)[0].data
 
             let dateLoad = JSON.parse(xhr.response)[2]
-            
-           
-            // c("Часов назад: ", Math.floor((dateNow-dateLoad)/1000/60/60))
             function nbv(){
                 dateMs = Date.now() - dateLoad
                 s = Math.floor(dateMs/1000)
@@ -99,14 +96,12 @@
                 mass2 = ["дней", "часов", "минут", "секунд"]
                 for(i in mass1){
                     if(mass1[i] > 0){
-                        c(mass2[i])
-                        c(mass1[i])
-                        break
+                        return `${mass1[i]} ${mass2[i]} назад`
                     }
                 }
-            }nbv()
+            }
 
-            myInfo.innerHTML = dateLoad
+            myInfo.innerHTML = `Обновленно: ${new Date(dateLoad).toLocaleString()}; ${nbv()}`
             input_.placeholder = JSON.parse(xhr.response)[0].name
 
             let div = document.createElement("div")
