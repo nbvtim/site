@@ -7,7 +7,7 @@ const filePath = "C:/Users/User/Desktop/ДОКУМЕНТЫ/1 смена СВК/�
 // const workSheetsFromFile = xlsx.parse(filePath)
 
 let xlsxDB = xlsx.parse(filePath)
-let date = `Обновленно: ${new Date().toLocaleString()}` // .toLocaleDateString()  .toLocaleTimeString()
+let date = Date.now()  // Date().toLocaleDateString()  Date().toLocaleTimeString()
 xlsxDB.push(date) 
 fs.writeFileSync("db.json", JSON.stringify(xlsxDB, null, 4))
 

@@ -85,6 +85,11 @@
             
             let db = JSON.parse(xhr.response)[0].data
 
+            let aaa = JSON.parse(xhr.response)[2]
+            let bbb = Date.now()
+            c(aaa)
+            c(bbb)
+
             myInfo.innerHTML = JSON.parse(xhr.response)[2]
             input_.placeholder = JSON.parse(xhr.response)[0].name
 
