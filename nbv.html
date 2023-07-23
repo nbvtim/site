@@ -57,10 +57,18 @@
 
             let xhr = new XMLHttpRequest()
             xhr.open("GET", "https://nbvtim.github.io/work/index.html", false) // данные берутся с сервера, возможна задержка 
-            xhr.send()
-            document.querySelector(".pre_nbv").innerText = xhr.response // xhr.response
-            
-        })
+            xhr.send() // xhr.response
+
+            setInterval(function(){
+                let aaa = Date.now()
+                document.querySelector(".pre_nbv").innerText = `
+    ${new Date(0)}
+    ${new Date()}
+    ${Date.now()}
+    ${new Date().toLocaleString()}
+    ${new Date().toLocaleDateString()}
+    ${new Date().toLocaleTimeString()}
+            `},100)})
     </script>
 
     
