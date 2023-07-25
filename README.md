@@ -1,3 +1,4 @@
+<pre>
 const c = function(t){
     r = Math.floor(Math.random()*6+1)
     s = "\033" + `[3${r}m`
@@ -7,3 +8,4 @@ const c = function(t){
 for(i = 1; i<10; i++){
     c("lkadsj")
 }
+</pre>
