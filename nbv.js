@@ -42,7 +42,7 @@ let date = Date.now()  // Date().toLocaleDateString()  Date().toLocaleTimeString
 xlsxDB.push(date) 
 fs.writeFileSync("db.json", JSON.stringify(xlsxDB, null, 4))
 
-c("\033[1;32mДанные обновлены !!! \033[m")        
+c("Данные обновлены !!!")        
 
 
 
