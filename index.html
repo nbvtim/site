@@ -70,7 +70,8 @@
 </head>
 <body>
     <div id="myInfo">Данные по обновлению</div>
-    <input  id="input_" type="text" autofocus>
+    <input  id="input0" type="text">
+    <input  id="input1" type="text">
     <a href="./nbv.html"></a>
 
     <script>
@@ -82,10 +83,9 @@
             let xhr = new XMLHttpRequest()
             xhr.open("GET", "https://nbvtim.github.io/work/db.json", false) // данные берутся с сервера, возможна задержка 
             xhr.send()
-            
-            let db = JSON.parse(xhr.response)[0].data
+            let db = JSON.parse(xhr.response)
 
-            let dateLoad = JSON.parse(xhr.response)[2]
+            let dateLoad = db[2]
             function nbv(){
                 dateMs = Date.now() - dateLoad
                 s = Math.floor(dateMs/1000)
@@ -100,21 +100,21 @@
                     }
                 }
             }
-
             myInfo.innerHTML = `Обновленно: ${new Date(dateLoad).toLocaleString()}; ${nbv()}`
-            input_.placeholder = JSON.parse(xhr.response)[0].name
 
             let div = document.createElement("div")
 
-            input_.addEventListener('input', function(){
-                let table = ""
+            input0.placeholder = db[0].name
+            input1.placeholder = db[1].name
+            input0.addEventListener('input', function(){
                 let arr = []
+                let table = ""
 
                 //делаем массив значений
-                for (i in db) {
-                    let index = db[i].join(",").toUpperCase().indexOf(input_.value.toUpperCase())
-                    if(index != -1 && input_.value != ""){
-                        arr.push(db[i])
+                for (i in db[0].data) {
+                    let index = db[0].data[i].join(",").toUpperCase().indexOf(input0.value.toUpperCase())
+                    if(index != -1 && input0.value != ""){
+                        arr.push(db[0].data[i])
                     }
                 }
                 for(i in arr){

@@ -1,4 +1,23 @@
-const c = function(text){
+const fs = require('fs')
+const xlsx = require('node-xlsx').default
+const filePath = "C:/Users/User/Desktop/ДОКУМЕНТЫ/1 смена СВК/ОПИСИ/all.xlsx"
+
+// const workSheetsFromBuffer = xlsx.parse(fs.readFileSync(filePath))
+// const workSheetsFromFile = xlsx.parse(filePath)
+
+let xlsxDB = xlsx.parse(filePath)
+let date = Date.now()  // Date().toLocaleDateString()  Date().toLocaleTimeString()
+xlsxDB.push(date) 
+fs.writeFileSync("db.json", JSON.stringify(xlsxDB, null, 4))
+
+c("Данные обновлены !!!")        
+
+
+
+
+
+
+function c(text){
     if(typeof text == "string"){
         let m = 
             [
@@ -30,21 +49,6 @@ const c = function(text){
         console.log(text)
     }
 }
-const fs = require('fs')
-const xlsx = require('node-xlsx').default
-const filePath = "C:/Users/User/Desktop/ДОКУМЕНТЫ/1 смена СВК/ОПИСИ/all.xlsx"
-
-// const workSheetsFromBuffer = xlsx.parse(fs.readFileSync(filePath))
-// const workSheetsFromFile = xlsx.parse(filePath)
-
-let xlsxDB = xlsx.parse(filePath)
-let date = Date.now()  // Date().toLocaleDateString()  Date().toLocaleTimeString()
-xlsxDB.push(date) 
-fs.writeFileSync("db.json", JSON.stringify(xlsxDB, null, 4))
-
-c("Данные обновлены !!!")        
-
-
 
 
 
