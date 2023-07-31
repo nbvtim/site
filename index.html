@@ -3,88 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <link rel="icon" href="./favicon.svg"> 
-    <!-- <link rel="stylesheet" href="./SOURS/index.css"> -->
     <style>
-        :active, :hover, :focus { outline: 0; outline-offset: 0;}
-        *{
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-            font-family: sans-serif;
-        }
-        body{
-            margin: 0px 10px;
-            background-color: black;
-        }
-        #myInfo{
-            color: #ec9f5850;
-            font-size: .5em;
-        }
-        input{
-            font-size: 1em;
-            padding: 15px;
-            margin: 10px 0px ;
-            height: 60px;
-            font-weight: bolder;
-            background-color: transparent;
-            border: 5px solid #ec9f5850; 
-            border-radius: 5px;
-            color: #eca058; 
-        }
-        input::-webkit-input-placeholder {
-            text-transform: uppercase; 
-            color: #eca058;
-            text-align: center;
-        }
-        table{
-            border-collapse: collapse;
-        }
-        th{
-            color: #eca058;
-            background-color: #ec9f5823;
-            border: 1px solid #ec9f5823;
-            padding: 3px;
-            font-weight: normal
-        }
-        td{
-            color: #eca058;
-            border: 1px solid #ec9f5823;
-            padding: 5px;
-            
-        }
-        a{
-            text-decoration: none;
-            font-size: 16px;
-            float: right;
-            text-transform: uppercase;
-            width: 60px;
-            height: 60px;
-            font-weight: bolder;
-            background-color: transparent;
-            border: 5px solid #ec9f5850; 
-            border-radius: 5px;
-            margin: 10px;
-        }
+
     </style>
     <title>nbv &#127759;</title>
 </head>
 <body>
     <div id="myInfo">Данные по обновлению</div>
-    <input  id="input0" type="text">
-    <input  id="input1" type="text">
-    <a href="./nbv.html"></a>
-
     <script>
-
-        //fetch('https://nbvtim.github.io/work/SOURS/all.json').then(function(res){return res.json()}).then(function(data){c(data)})
         window.addEventListener('load', function(){
             let c = console.log    
-
+// запрос на сервер
             let xhr = new XMLHttpRequest()
-            xhr.open("GET", "https://nbvtim.github.io/work/db.json", false) // данные берутся с сервера, возможна задержка 
+            xhr.open("GET", "https://nbvtim.github.io/work/db.json", false) 
             xhr.send()
             let db = JSON.parse(xhr.response)
+// pre для отображения результатов поиска
+            pre = document.createElement("pre")
+            document.querySelector("#myInfo").after(pre)
+// создаем input и выставляем placeholder из db
+            for(i in db){
+                if(db[i].name){
+                    input = document.createElement("input")
+                    input.placeholder = db[i].name
+                    document.querySelector("#myInfo").after(input)
+                }
+            }
+// при клике на input определяем placeholder и по его имени формируем mass с данными
+            document.addEventListener("click", function(e){
+                e.target.value = ""
+                if(e.target.placeholder){
+                    let mass
+                    for(i in db){
+                        if(db[i].name == e.target.placeholder){
+                            mass = db[i].data
+                        }
+                    }
+    // берем введение данные из input и ищем совпадения в mass формируя arr 
+                    e.target.addEventListener("input", function(){
+                        arr = []
+                        for(i in mass){
+                            index = mass[i].join(", ").toLowerCase().indexOf(e.target.value.toLowerCase())
+                            if(index != -1 && e.target.value != ""){
+                                arr.push(mass[i])
+                            }                            
+                        }
+    // полученные данные в arr вставляем в pre    
+                        pre.innerText = JSON.stringify(arr,null,5)
+                    })    
+                }
+            })
 
+// Данные по обновлению (div с классом myInfo)
             let dateLoad = db[2]
             function nbv(){
                 dateMs = Date.now() - dateLoad
@@ -101,55 +71,9 @@
                 }
             }
             myInfo.innerHTML = `Обновленно: ${new Date(dateLoad).toLocaleString()}; ${nbv()}`
+        })
 
-            let div = document.createElement("div")
 
-            input0.placeholder = db[0].name
-            input1.placeholder = db[1].name
-            input0.addEventListener('input', function(){
-                let arr = []
-                let table = ""
-
-                //делаем массив значений
-                for (i in db[0].data) {
-                    let index = db[0].data[i].join(",").toUpperCase().indexOf(input0.value.toUpperCase())
-                    if(index != -1 && input0.value != ""){
-                        arr.push(db[0].data[i])
-                    }
-                }
-                for(i in arr){
-                    for(j in arr[i]){
-                        if(arr[i][j] === null){
-                            arr[i][j] = ""
-                        }
-                    }
-                }
-                //формируем HTML таблицу
-                table = "<table><tbody>"
-                // table += "<tr>"
-                // for (let i = 0; i < db[0].length; i++) {
-                //     table += "<th>"+db[0][i]+"</th>"
-                // }
-                // table += "</tr>"
-                for (let i = 0; i < arr.length; i++) {
-                    table += "<tr>"
-                    for (let j = 0; j < arr[i].length; j++) {
-                        table += "<td>"+arr[i][j]+"</td>"
-                    }
-                    table += "</tr>"
-                }
-                table += "</tbody></table>"
-                //вставляем таблицу в документ
-                div.innerHTML = ""
-                document.body.append(div)
-                div.innerHTML = table
-                document.body.append(div)
-                if(arr.length === 0){
-                    div.style.display = "none"
-                }else{
-                    div.style.display = "block"
-                } 
-            })
 /*            
             function tg(text){
                 TOKKEN = JSON.parse(xhr.response).tg
@@ -162,7 +86,6 @@
                 xhttp.send()
             }
 */                      
-        })
     </script>
 
 </body>
