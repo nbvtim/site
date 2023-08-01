@@ -53,7 +53,7 @@
     // регулярные выражения
                         let aaa = pre.innerText
                         let bbb = ""
-                        let reg = new RegExp(e.target.value,"g")
+                        let reg = new RegExp(e.target.value,"gi")
                         bbb = aaa.replace(reg, `<span>${e.target.value}</span>`)
                         pre.innerHTML = bbb
                     })    
