@@ -4,13 +4,10 @@
     <meta charset="UTF-8">
     <link rel="icon" href="./favicon.svg"> 
     <style>
+        :active, :hover, :focus {outline: 0;outline-offset: 0;}
+        body{ background-image: url('nodejs.png'); background-repeat: no-repeat; background-size: cover; background-attachment: fixed;}
+        #myInfo{font-size: .5em;}
         span{color: blue}
-        body{
-            background-image: url('nodejs.png');
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-attachment: fixed;
-        }
     </style>
     <title>nbv &#127759;</title>
 </head>
@@ -78,11 +75,11 @@
                 mass2 = ["дней", "часов", "минут", "секунд"]
                 for(i in mass1){
                     if(mass1[i] > 0){
-                        return `${mass1[i]} ${mass2[i]} назад`
+                        return `${mass2[i]} назад - ${mass1[i]}`
                     }
                 }
             }
-            myInfo.innerHTML = `Обновленно: ${new Date(dateLoad).toLocaleString()}; ${nbv()}`
+            myInfo.innerHTML = `Обновленно: ${new Date(dateLoad).toLocaleString()} [ ${nbv()} ]`
         })
 
 
