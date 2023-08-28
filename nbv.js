@@ -6,6 +6,7 @@ const filePath = "C:/Users/User/Desktop/ДОКУМЕНТЫ/1 смена СВК/�
 // const workSheetsFromBuffer = xlsx.parse(fs.readFileSync(filePath))
 // const workSheetsFromFile = xlsx.parse(filePath)
 
+
 let xlsxDB = xlsx.parse(filePath)
 let date = Date.now()  // Date().toLocaleDateString()  Date().toLocaleTimeString()
 xlsxDB.push(date) 
