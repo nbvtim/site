@@ -4,98 +4,24 @@
     <meta charset="UTF-8">
     <link rel="icon" href="./favicon.svg"> 
     <style>
-        :active, :hover, :focus {outline: none;}
-        body{ background-image: url('nodejs.png'); background-repeat: no-repeat; background-size: cover; background-attachment: fixed;}
-        #myInfo{font-size: .5em;}
-        span{color: blue}
+        div{
+            font-size: 2em;
+        }
     </style>
     <title>nbv &#127759;</title>
 </head>
 <body>
-    <div id="myInfo">Данные по обновлению</div>
-    <script>
-        window.addEventListener('load', function(){
-            let c = console.log    
-// запрос на сервер
-            let xhr = new XMLHttpRequest()
-            xhr.open("GET", "https://nbvtim.github.io/work/db.json", false) 
-            xhr.send()
-            let db = JSON.parse(xhr.response)
-// pre для отображения результатов поиска
-            pre = document.createElement("pre")
-            document.querySelector("#myInfo").after(pre)
-// создаем input и выставляем placeholder из db
-            for(i in db){
-                if(db[i].name){
-                    input = document.createElement("input")
-                    input.placeholder = db[i].name
-                    document.querySelector("#myInfo").after(input)
-                }
-            }
-// при клике на input определяем placeholder и по его имени формируем mass с данными
-            document.addEventListener("click", function(e){
-                e.target.value = ""
-                if(e.target.placeholder){
-                    let mass
-                    for(i in db){
-                        if(db[i].name == e.target.placeholder){
-                            mass = db[i].data
-                        }
-                    }
-    // берем введение данные из input и ищем совпадения в mass формируя arr 
-                    e.target.addEventListener("input", function(){
-                        arr = []
-                        for(i in mass){
-                            index = mass[i].join(", ").toLowerCase().indexOf(e.target.value.toLowerCase())
-                            if(index != -1 && e.target.value != ""){
-                                arr.push(mass[i])
-                            }                            
-                        }
-    // полученные данные в arr вставляем в pre    
-                        pre.innerText = JSON.stringify(arr,null,5)
-    // регулярные выражения
-                        let aaa = pre.innerText
-                        let bbb = ""
-                        let reg = new RegExp(e.target.value,"gi")
-                        bbb = aaa.replace(reg, `<span>${e.target.value}</span>`)
-                        pre.innerHTML = bbb
-                    })    
-                }
-            })
-
-// Данные по обновлению (div с классом myInfo)
-            let dateLoad = db[2]
-            function nbv(){
-                dateMs = Date.now() - dateLoad
-                s = Math.floor(dateMs/1000)
-                m = Math.floor(dateMs/1000/60)
-                h = Math.floor(dateMs/1000/60/60)
-                d = Math.floor(dateMs/1000/60/60/24)
-                mass1 = [     d,       h,       m,        s]
-                mass2 = ["дней", "часов", "минут", "секунд"]
-                for(i in mass1){
-                    if(mass1[i] > 0){
-                        return `${mass2[i]} назад - ${mass1[i]}`
-                    }
-                }
-            }
-            myInfo.innerHTML = `Обновленно: ${new Date(dateLoad).toLocaleString()} [ ${nbv()} ]`
-        })
+    
+<div>
+    Сайт не функционирует, так для этих целей был разработан Telegram Bot
+</div>
+<div>
+    Бот доступен по ссылке <a href="https://web.telegram.org/k/#@brsvcbot">https://web.telegram.org/k/#@brsvcbot</a>
+</div>
+     
 
 
-/*            
-            function tg(text){
-                TOKKEN = JSON.parse(xhr.response).tg
-                chat_id = 5131265599
-                // https://api.telegram.org/bot${TOKKEN}/getUpdates - переходим по адресу
-                // https://api.telegram.org/bot${TOKKEN}/sendMessage?chat_id=${chat_id}&text=бот_напишет_себе
-                // https://api.telegram.org/bot${TOKKEN}/sendMessage?chat_id=${chat_id}&text=бот_напишет_в_группу
-                xhttp = new XMLHttpRequest()
-                xhttp.open("GET", `https://api.telegram.org/bot${TOKKEN}/sendMessage?chat_id=${chat_id}&text=` + text, false)
-                xhttp.send()
-            }
-*/                      
-    </script>
+
 
 </body>
 </html>
