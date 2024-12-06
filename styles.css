@@ -11,17 +11,19 @@ body{
     border: 2px solid rgb(149, 174, 255);
 }
 input{
-    
+    width: 100%;
+    outline: none;
     font-weight: bolder;
     font-size: 18px;
     text-align: center;
     padding: 10px 0px;
     background-color: rgb(149, 174, 255);
     border: none;
+    
 }input::placeholder {
     font-weight: bold;
-    opacity: 0.5;
-    color: transparent;
+    color: #ffffff;
+    transform: rotate(5deg);
 }
 div{
     border: 2px solid;
