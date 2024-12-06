@@ -9,7 +9,7 @@ input1.autofocus = true
 
 m = ["keyup",       "keydown",      "mouseover",    "mouseout",     "click"]
 input1.addEventListener(m[0], e=>{
-    document.querySelectorAll("div")[0].innerText = "Event: " + e.type + " , value: " + e.target.value
+    document.querySelectorAll("div")[0].innerText = "Event: " + e.type + "\nvalue: " + e.target.value
 })
 
 
