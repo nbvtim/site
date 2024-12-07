@@ -6,7 +6,6 @@
     font-family: Helvetica, sans-serif;
 }
 body{
-    text-align: center;
     padding: 10px 0px;
     border: 2px solid rgb(149, 174, 255);
 }
@@ -33,4 +32,12 @@ pre{
     background-color: rgb(149, 174, 255);
     border: 2px solid;
     border-top: none;
+}
+#mouse{
+    display: inline;
+    border: 1px solid black;
+    position: fixed;
+    left: 20px;
+    top: 10px;
+    font-size: .5em;
 }

@@ -1,7 +1,7 @@
 //  https://nbvtim.github.io/site/
 
 let c = console.log
-let input1 = document.querySelectorAll("input")[0]
+input1 = document.querySelectorAll("input")[0]
 input1.placeholder = "ПОИСК"
 input1.value = ""
 input1.innerText = "innerText"
@@ -13,4 +13,17 @@ input1.addEventListener(m[      0       ], e=>{
 })
 
 
+window.addEventListener('mousemove', function (event) {
+    const x = event.clientX
+    const y = event.clientY
+    
+    mouse.style.left = x+5 + 'px'
+    mouse.style.top = y-mouse.clientHeight-5 + 'px'
 
+    
+
+    mouse.innerText = `
+    mouse: ${event.clientX}:${event.clientY}
+    ${event.target}`
+    c(event)
+})
