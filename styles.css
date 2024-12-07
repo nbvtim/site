@@ -7,7 +7,8 @@
 }
 body{
     padding: 10px 0px;
-    border: 2px solid rgb(149, 174, 255);
+    border: 2px solid rgb(0, 0, 0);
+    background-color: rgb(149, 174, 255);
 }
 input{
     width: 100%;
@@ -16,9 +17,10 @@ input{
     font-size: 18px;
     text-align: center;
     padding: 10px 0px;
-    background-color: rgb(149, 174, 255);
     border: none;
-    
+    background-color: transparent;
+    border: 2px solid;
+    border-bottom: none;
 }input::placeholder {
     font-weight: bold;
     color: #ffffff;
@@ -26,10 +28,8 @@ input{
 }
 div{
     border: 2px solid;
-    background-color: rgb(149, 174, 255);
 }
 pre{
-    background-color: rgb(149, 174, 255);
     border: 2px solid;
     border-top: none;
 }
@@ -39,5 +39,5 @@ pre{
     position: fixed;
     left: 20px;
     top: 10px;
-    font-size: .5em;
+    font-size: .7em;
 }

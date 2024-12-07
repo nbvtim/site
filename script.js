@@ -19,11 +19,6 @@ window.addEventListener('mousemove', function (event) {
     
     mouse.style.left = x+5 + 'px'
     mouse.style.top = y-mouse.clientHeight-5 + 'px'
+    mouse.innerText = `mouse: ${event.clientX}:${event.clientY}`
 
-    
-
-    mouse.innerText = `
-    mouse: ${event.clientX}:${event.clientY}
-    ${event.target}`
-    c(event)
 })
