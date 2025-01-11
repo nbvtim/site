@@ -1,4 +1,7 @@
 //  https://nbvtim.github.io/site/
-
+//  index.html открывать мышкой через Live Server
 let c = console.log
-
+maininput.addEventListener("keyup", even=>{
+    // c(even)
+    // c(maininput.value)
+})
