@@ -5,39 +5,3 @@
     list-style: none;
     font-family: Helvetica, sans-serif;
 }
-body{
-    padding: 10px 0px;
-    border: 2px solid rgb(0, 0, 0);
-    background-color: rgb(149, 174, 255);
-}
-input{
-    width: 100%;
-    outline: none;
-    font-weight: bolder;
-    font-size: 18px;
-    text-align: center;
-    padding: 10px 0px;
-    border: none;
-    background-color: transparent;
-    border: 2px solid;
-    border-bottom: none;
-}input::placeholder {
-    font-weight: bold;
-    color: #ffffff;
-    transform: rotate(5deg);
-}
-div{
-    border: 2px solid;
-}
-pre{
-    border: 2px solid;
-    border-top: none;
-}
-#mouse{
-    display: inline;
-    border: 1px solid black;
-    position: fixed;
-    left: 20px;
-    top: 10px;
-    font-size: .7em;
-}
