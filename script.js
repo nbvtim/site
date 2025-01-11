@@ -4,4 +4,6 @@ let c = console.log
 maininput.addEventListener("keyup", even=>{
     // c(even)
     // c(maininput.value)
+    info.style.color = "#0000ff"
+    info.innerText = `Запрос: ${maininput.value}`
 })
