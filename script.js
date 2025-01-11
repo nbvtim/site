@@ -6,4 +6,5 @@ maininput.addEventListener("keyup", even=>{
     // c(maininput.value)
     info.style.color = "#0000ff"
     info.innerText = `Запрос: ${maininput.value}`
+    result.innerText = "Не найдено"
 })
